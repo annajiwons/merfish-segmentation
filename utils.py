@@ -1,11 +1,12 @@
 import matplotlib.pyplot as plt
 from stardist import random_label_cmap
 
-lbl_cmap = random_label_cmap()
 taus = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
 def show_test_images(X, Y_truth, Y_pred, file_names, show_num = None):
     num_images = min(show_num, len(X)) if show_num is not None else len(X)
+    lbl_cmap = random_label_cmap()
+
     for i in range(num_images):
         fig, axes = plt.subplots(1, 3, figsize=(20, 10))
         axes[0].imshow(X[i], clim=(0,1), cmap='gray')
