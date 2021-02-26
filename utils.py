@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 from stardist import random_label_cmap
 
@@ -35,3 +36,15 @@ def train_validation_split(X, Y, percent_valid = 0.25):
     print(f'- training: {len(train_indices)}')
     print(f'- validation: {len(valid_indices)}')
     return X_train, Y_train, X_valid, Y_valid
+
+def save_scores_csv(dataset_matching_list):
+    data = [(dataset_matching.thresh, dataset_matching.fp, dataset_matching.tp, 
+             dataset_matching.fn, dataset_matching.precision, dataset_matching.recall, 
+             dataset_matching.accuracy, dataset_matching.f1) 
+             for dataset_matching in dataset_matching_list]
+    
+    df = pd.DataFrame.from_records(data, 
+                                   columns = ['Threshold', 'FP', 'TP', 'FN', 
+                                              'Precision', 'Recall', 'Accuracy', 'F1'])
+    
+    df.to_csv('scores.csv', index = False)
