@@ -22,12 +22,6 @@ merfish_X_manual_train = [normalize(img, 1, 99.8, axis=(0, 1)) for img in list(m
 merfish_Y_manual_train_names = sorted(glob(f'{merfish_dir}/train/masks/manual/*.tif'))
 merfish_Y_manual_train = [fill_label_holes(img) for img in tqdm(list(map(io.imread, merfish_Y_manual_train_names)))]
 
-# Read test images and masks, normalize test images
-merfish_X_test_names = sorted(glob(f'{merfish_dir}/test/images/*.tif'))
-merfish_X_test = [normalize(img, 1, 99.8, axis=(0, 1)) for img in list(map(io.imread, merfish_X_test_names))]
-merfish_Y_test_names = sorted(glob(f'{merfish_dir}/test/masks/*.tif'))
-merfish_Y_test = list(map(io.imread, merfish_Y_test_names))
-
 # Train validation split
 merfish_X_manual_train, merfish_Y_manual_train, merfish_X_manual_valid, merfish_Y_manual_valid = train_validation_split(merfish_X_manual_train, merfish_Y_manual_train)
 
