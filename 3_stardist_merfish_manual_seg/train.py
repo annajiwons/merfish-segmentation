@@ -36,3 +36,6 @@ vars(conf)
 # Train StarDist model
 manual_mask_merfish_model = StarDist2D(conf, name='manual_mask_merfish_model', basedir=model_dir)
 manual_mask_merfish_model.train(merfish_X_manual_train, merfish_Y_manual_train, validation_data=(merfish_X_manual_valid, merfish_Y_manual_valid), augmenter=None, epochs=300)
+
+# Tune prob_thresh for provided (fixed) nms_thresh to maximize matching score
+manual_mask_merfish_model.optimize_thresholds(merfish_X_manual_valid, merfish_Y_manual_valid)
