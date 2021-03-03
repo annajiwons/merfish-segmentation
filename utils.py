@@ -37,7 +37,7 @@ def train_validation_split(X, Y, percent_valid = 0.25):
     print(f'- validation: {len(valid_indices)}')
     return X_train, Y_train, X_valid, Y_valid
 
-def save_scores_csv(dataset_matching_list):
+def save_scores_csv(dataset_matching_list, filename_suffix = ''):
     data = [(dataset_matching.thresh, dataset_matching.fp, dataset_matching.tp, 
              dataset_matching.fn, dataset_matching.precision, dataset_matching.recall, 
              dataset_matching.accuracy, dataset_matching.f1) 
@@ -47,4 +47,4 @@ def save_scores_csv(dataset_matching_list):
                                    columns = ['Threshold', 'FP', 'TP', 'FN', 
                                               'Precision', 'Recall', 'Accuracy', 'F1'])
     
-    df.to_csv('scores.csv', index = False)
+    df.to_csv(f'scores{filename_suffix}.csv', index = False)
