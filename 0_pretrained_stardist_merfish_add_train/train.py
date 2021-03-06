@@ -11,7 +11,7 @@ from tqdm import tqdm
 
 from utils import train_validation_split
 
-image_dir = f'../images'
+image_dir = f'/storage/annajiwons/images'
 merfish_dir = f'{image_dir}/merfish'
 
 model_dir = './models'
@@ -34,7 +34,7 @@ print(conf)
 vars(conf)
 
 # Number of training examples to use
-num_train = [5, 10, 20]
+num_train = [5, 10]
 
 for num in num_train:
     # Load pretrained StarDist model for 2d fluorescent images
