@@ -35,10 +35,10 @@ conf = Config2D (
 print(conf)
 vars(conf)
 
-def random_noise(img):
+def random_noise(img, mask):
     sig = 0.02 * np.random.uniform(0,1)
-    img = img + sig * np.random.normal(0, 1, img.shape)
-    return img
+    aug_img = img + sig * np.random.normal(0, 1, img.shape)
+    return (aug_img, mask)
 
 # Train StarDist model
 noise_aug_merfish_model = StarDist2D(conf, name='noise_aug_merfish_model', basedir=model_dir)
