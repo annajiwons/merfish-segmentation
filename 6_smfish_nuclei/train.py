@@ -12,7 +12,7 @@ from tqdm import tqdm
 from utils import train_validation_split
 
 # Directories
-image_dir = f'../images'
+image_dir = f'/storage/annajiwons/images'
 merfish_dir = f'{image_dir}/merfish'
 smfish_dir = f'{image_dir}/smfish'
 
