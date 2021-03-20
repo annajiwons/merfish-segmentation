@@ -39,6 +39,7 @@ num_train = [5, 10]
 for num in num_train:
     # Load pretrained StarDist model for 2d fluorescent images
     pretrained_stardist_model = StarDist2D(None, name = f'2D_versatile_fluo_{num}', basedir = model_dir) 
-    pretrained_stardist_model.train(merfish_X_manual_train[:num], merfish_Y_manual_train[:num], 
-                                    validation_data=(merfish_X_manual_valid[:num], merfish_Y_manual_valid[:num]), 
-                                    augmenter=None, epochs=300)
+#     pretrained_stardist_model.train(merfish_X_manual_train[:num], merfish_Y_manual_train[:num], 
+#                                     validation_data=(merfish_X_manual_valid[:num], merfish_Y_manual_valid[:num]), 
+#                                     augmenter=None, epochs=300)
+    pretrained_stardist_model.optimize_thresholds(merfish_X_manual_valid, merfish_Y_manual_valid)
