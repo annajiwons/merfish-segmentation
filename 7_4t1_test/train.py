@@ -35,7 +35,7 @@ vars(conf)
 
 # Load pretrained StarDist model trained with 2d fluorescent images + 10 additional u2os images
 # Train with all additional images
-pretrained_stardist_model = StarDist2D(None, name = '2D_versatile_fluo_10_u2os_5', basedir = model_dir) 
+pretrained_stardist_model = StarDist2D(None, name = '2D_versatile_fluo_10_u2os', basedir = model_dir) 
 pretrained_stardist_model.train(X_train, Y_train, 
                                 validation_data=(X_valid, Y_valid), 
                                 augmenter=None, epochs=300)
