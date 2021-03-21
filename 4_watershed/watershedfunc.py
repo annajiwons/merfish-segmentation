@@ -104,7 +104,7 @@ def watershed_seg(img, upper_limit, alpha, beta, blur_ksize, thresh_method, morp
     return markers
 
 def evaluate_all(imgs, masks, params):
-    taus = [0.6, 0.7, 0.8, 0.9]
+    taus = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
     tp_total = {key: 0 for key in taus}
     fp_total = {key: 0 for key in taus}
     fn_total = {key: 0 for key in taus}
