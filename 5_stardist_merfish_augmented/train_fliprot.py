@@ -37,8 +37,7 @@ vars(conf)
 
 def random_fliprot(img, mask): 
     axes = tuple(range(mask.ndim))
-    rng = np.random.default_rng(586)
-    perm = tuple(rng.permutation(axes))
+    perm = tuple(np.random.permutation(axes))
     img = img.transpose(perm + tuple(range(mask.ndim, img.ndim))) 
     mask = mask.transpose(perm) 
     for ax in axes: 

@@ -36,8 +36,7 @@ print(conf)
 vars(conf)
 
 def random_intensity_change(img, mask):
-    rng = np.random.default_rng(851)
-    aug_img = img * rng.uniform(0.5, 2) + rng.uniform(-0.2, 0.2)
+    aug_img = img * np.random.uniform(0.5, 2) + np.random.uniform(-0.2, 0.2)
     return (aug_img, mask)
 
 # Train StarDist model
