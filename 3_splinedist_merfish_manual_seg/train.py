@@ -32,7 +32,7 @@ M = 6
 n_params = 2 * M
 
 # Predict on subsampled grid for increased efficiency and larger field of view
-grid = (4,4)
+grid = (2,2)
 
 # compute the size of the largest contour present in the image-set
 contoursize_max = get_contoursize_max(merfish_Y_train)
@@ -42,7 +42,7 @@ conf = Config2D (
     grid            = grid,
     n_channel_in    = 1,
     contoursize_max = contoursize_max,
-    train_patch_size = (512,512),
+    train_patch_size = (256,256),
 )
 print(conf)
 vars(conf)
