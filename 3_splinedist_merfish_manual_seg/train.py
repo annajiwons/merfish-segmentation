@@ -12,7 +12,7 @@ from tqdm import tqdm
 
 from utils import train_validation_split
 
-image_dir = f'../images'
+image_dir = f'/storage/annajiwons/images'
 merfish_dir = f'{image_dir}/merfish'
 
 model_dir = './models'
@@ -24,7 +24,7 @@ merfish_Y_train_names = sorted(glob(f'{merfish_dir}/train/masks/manual/*.tif'))
 merfish_Y_train = [fill_label_holes(img) for img in tqdm(list(map(io.imread, merfish_Y_train_names)))]
 
 # Train validation split
-merfish_X_train, merfish_Y_train, merfish_X_valid, merfish_Y_valid = train_validation_split(merfish_X_train, merfish_Y_train, 0.1)
+merfish_X_train, merfish_Y_train, merfish_X_valid, merfish_Y_valid = train_validation_split(merfish_X_train, merfish_Y_train)
 
 # Using configuration from SplineDist example
 # choose the number of control points (M)
