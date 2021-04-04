@@ -53,5 +53,4 @@ grid_generator(M, conf.train_patch_size, conf.grid)
 splinedist_merfish_model = SplineDist2D(conf, name='splinedist_merfish', basedir=model_dir)
 splinedist_merfish_model.train(merfish_X_train, merfish_Y_train, validation_data=(merfish_X_valid, merfish_Y_valid), augmenter=None, epochs=300)
 
-# Comment out as the default values work better
-# splinedist_merfish_model.optimize_thresholds(merfish_X_valid, merfish_Y_valid)
+splinedist_merfish_model.optimize_thresholds(merfish_X_valid, merfish_Y_valid)
